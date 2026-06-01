@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'Contracts-Chatbot'
           slot-name: 'Production'
-          package: .
+          package: dist
           
