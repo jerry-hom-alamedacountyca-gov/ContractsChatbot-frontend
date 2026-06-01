@@ -28,12 +28,16 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+          
+      - name: Copy startup script into build output
+        run: cp startup.sh dist/startup.sh
+          
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: .
+          path: dist/
 
   deploy:
     runs-on: ubuntu-latest
@@ -62,4 +66,5 @@ jobs:
           app-name: 'Contracts-Chatbot'
           slot-name: 'Production'
           package: .
+          startup-command: 'bash startup.sh'
           
