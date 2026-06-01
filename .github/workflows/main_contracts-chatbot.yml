@@ -28,16 +28,12 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-          
-      - name: Copy startup script into build output
-        run: cp startup.sh dist/startup.sh
-          
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: dist/
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_960FFC47C6304B549E5EB5026FC2E14B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_ADF7CAA01A7E4871B4AE2B28A5882BAA }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_5395F46B0EBA431F8FBE6B388EF92914 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C9D20ACA18464DAA9EEE588493073AE1 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_ADDE5376E2D24C81B3FEE4C0E43A88BC }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_ABF35F61B4D9455997A6E9D9DFD34649 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -66,5 +62,4 @@ jobs:
           app-name: 'Contracts-Chatbot'
           slot-name: 'Production'
           package: .
-          startup-command: 'bash startup.sh'
           
