@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: dist/
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_31CBF0BA39E445CDA4B9020FB35DA5B8 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_DBA67687B1F744A7AED5BB179F3E4265 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_459B847B061942E2B2BA9E3F57C578E3 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_B1A2B776E6B1430DAC898EF99C6083C8 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_4CB3C88B9EBB4F7DAF9D4D8D316A85DE }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_2278C0644A1B47939B49DC6F671B44F4 }}
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -61,5 +61,5 @@ jobs:
         with:
           app-name: 'Contracts-Chatbot'
           slot-name: 'Production'
-          package: dist/
+          package: .
           
