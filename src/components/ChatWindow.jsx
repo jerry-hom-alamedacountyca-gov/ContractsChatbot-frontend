@@ -195,7 +195,6 @@ export default function ChatWindow() {
 
   return (
     <div className="chat-layout">
-      <h1>Contracts Assistant</h1>
       {/* Sidebar backdrop */}
       {sidebarOpen && (
         <div
@@ -217,6 +216,9 @@ export default function ChatWindow() {
 
       {/* Main chat area */}
       <div className="chat-window">
+        <div className="chat-header">
+          <h1>Contracts Assistant</h1>
+        </div>
         <div className="chat-toolbar">
           <button
             className="sidebar-toggle"
