@@ -195,6 +195,7 @@ export default function ChatWindow() {
 
   return (
     <div className="chat-layout">
+      <h1>Contracts Assistant</h1>
       {/* Sidebar backdrop */}
       {sidebarOpen && (
         <div
