@@ -221,9 +221,6 @@ export default function ChatWindow() {
             <h2 className="header-county">ALAMEDA COUNTY</h2>
             <h3 className="header-department">Procurement Contracts Services</h3>
           </div>
-          <div className="header-logo">
-            <div className="logo-placeholder">🏛️</div>
-          </div>
         </div>
         <div className="service-banner">
           <h1 className="service-title">Contracts Assistant</h1>
