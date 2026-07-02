@@ -217,7 +217,16 @@ export default function ChatWindow() {
       {/* Main chat area */}
       <div className="chat-window">
         <div className="header-frame">
-          <h1 className="header-title">Alameda County Contracts Assistant</h1>
+          <div className="header-content">
+            <h2 className="header-county">ALAMEDA COUNTY</h2>
+            <h3 className="header-department">Procurement Contracts Services</h3>
+          </div>
+          <div className="header-logo">
+            <div className="logo-placeholder">🏛️</div>
+          </div>
+        </div>
+        <div className="service-banner">
+          <h1 className="service-title">Contracts Assistant</h1>
         </div>
         <div className="chat-toolbar">
           <button
