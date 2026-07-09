@@ -165,7 +165,7 @@
 .header-frame {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: 20px 32px;
   background: #505050;
   color: white;
@@ -175,9 +175,7 @@
 }
 
 .header-content {
-  flex: 1;
   text-align: center;
-  margin-right: 90px;
 }
 
 .header-county {
@@ -196,25 +194,11 @@
 }
 
 .header-logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  right: 32px;
-  top: 50%;
-  transform: translateY(-50%);
-  flex-shrink: 0;
+  display: none;
 }
 
 .logo-placeholder {
-  width: 70px;
-  height: 70px;
-  background: white;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
+  display: none;
 }
 
 /* ── Service Banner ── */
