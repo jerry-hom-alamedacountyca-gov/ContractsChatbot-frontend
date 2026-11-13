@@ -2,12 +2,17 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 function CitationList({ citations }) {
-  if (!citations?.length) return null;
+  const visibleCitations = (citations || []).filter(
+    (c) => c.type !== 'url' || !/^mcp:\/\//i.test(c.url)
+  );
+
+  if (!visibleCitations.length) return null;
+
   return (
     <div className="citations">
       <div className="citations-label">Sources:</div>
       <ul className="citations-list">
-        {citations.map((c, i) => (
+        {visibleCitations.map((c, i) => (
           <li key={i}>
             {c.type === 'url' ? (
               <a href={c.url} target="_blank" rel="noopener noreferrer">
