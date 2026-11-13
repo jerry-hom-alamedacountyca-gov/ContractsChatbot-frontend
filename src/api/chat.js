@@ -49,7 +49,11 @@ function extractCitations(parts) {
   for (const part of parts) {
     const annotations = part?.annotations || [];
     for (const ann of annotations) {
-      if (ann.type === 'url_citation' && ann.url) {
+      if (
+        ann.type === 'url_citation' &&
+        ann.url &&
+        !ann.url.toLowerCase().startsWith('mcp://')
+      ) {
         const key = ann.url;
         if (!seen.has(key)) {
           seen.add(key);
