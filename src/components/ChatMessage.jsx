@@ -44,10 +44,19 @@ export default function ChatMessage({ role, content, citations, isLoading = fals
           </div>
         ) : (
           <>
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {content.replace(/【\d+:\d+†[^】]*】/g, '')}
-            </ReactMarkdown>
-            <CitationList citations={citations} />
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          components={{
+            a: ({ href, title, children }) => (
+              <a href={href} title={title} target="_blank" rel="noopener noreferrer">
+                {children}
+              </a>
+            ),
+          }}
+        >
+          {content.replace(/【\d+:\d+†[^】]*】/g, '')}
+        </ReactMarkdown>
+        <CitationList citations={citations} />
           </>
         )}
       </div>
